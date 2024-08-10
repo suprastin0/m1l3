@@ -1,5 +1,5 @@
 import telebot # библиотека telebot
-from config import token # импорт токена
+from config import token 
 
 bot = telebot.TeleBot(token) 
 
