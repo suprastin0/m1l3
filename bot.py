@@ -32,6 +32,10 @@ def ban_message(message):
         bot.ban_chat_member(chat_id, user_id) # пользователь с user_id будет забанен в чате с chat_id
         bot.reply_to(message, f"Пользователь @{message.reply_to_message.from_user.username} был забанен.")
     
+@bot.message_handler(content_types=['new_chat_members'])
+def make_some(message):
+    bot.send_message(message.chat.id, 'I accepted a new user!')
+    bot.approve_chat_join_request(message.chat.id, message.from_user.id)
 
 
 bot.infinity_polling(none_stop=True)
