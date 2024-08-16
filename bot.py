@@ -25,7 +25,7 @@ def ban_user(message):
 
 @bot.message_handler(func=lambda message: True)
 def ban_message(message):
-    if message.text == "https://":
+    if "https://" in message.text:
         chat_id = message.chat.id
         user_id = message.reply_to_message.from_user.id
         user_status = bot.get_chat_member(chat_id, user_id).status 
